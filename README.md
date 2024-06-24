@@ -1,7 +1,7 @@
 # Motor-Synchronisation
 This is a project that aims to control two dc motors such that they are in phase with each other.
 
-This project is actually rrequired as a part of an ornithopter build. According to the design, the wings of the ornithopter are independantly controlled by two separate DC motors. Thus for proper flight, it is essential that the motors are in sync with each other.
+This project is actually required as a part of an ornithopter build. According to the design, the wings of the ornithopter are independantly controlled by two separate DC motors. Thus for proper flight, it is essential that the motors are in sync with each other.
 
 The main challenge of this project is the form factor of the components. As an ornithopter should be able to have a sustained flight, all the components that have been used in the build have to be as small and light as possible.
 
