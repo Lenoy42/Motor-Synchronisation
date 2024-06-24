@@ -14,7 +14,7 @@ volatile long enbcount = 0;
 long prevTime = 0;
 float ePrev = 0;
 float eIntegral = 0;
-int value;  //takes the required motor speed from 0 to 100, code can be changed to get input serially as well
+int value = 50;  //takes the required motor speed from 0 to 100, code can be changed to get input serially as well
 
 
 void setup() {
@@ -54,7 +54,6 @@ void handleencb() {  //ISR for Encoder b
 }
 
 void loop() {
-  value = analogRead(A0);
   int valadj = map(value, 0, 100, 0, 255);
   analogWrite(pwma, valadj);  //Giving 1st motor a speed to run at
 
