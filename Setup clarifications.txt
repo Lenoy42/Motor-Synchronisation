@@ -1,0 +1,10 @@
+The code that has been uploaded was initially tested on for the N20 600 RPM 12V motors. Now these motors were driven by the L293N motor driver.
+
+Due to the higher voltage demand for this motor, it was initially required to "jump start" the motors by giving them the max voltage. So for initial testing, for setting the speed of the first motor, we used a potentiometer as a voltage divider, whose output was read by the analog pin of the Arduino, and then mapped to an appropriate PWM value, which would be sent to the enabler pins of the motor driver
+
+The potentiometer in the encoder circuit is used as a means of adjusting the sensitivity of the IR receiver. Lesser the voltage given to the -'ve pin of the LM358, greater is the distance at which the detector can pick up the IR signals. However, if you give too less voltage to the -'ve pin, the encoder will malfunction as the detector will start sensing all the IR sources around it, giving the wrong readings. Thus you'll have to find that sweet spot by experimentation.
+
+The PID constant values that have been used in the code are all found out experimentally. It took a lot of time for me to figure it out, as I had not implemented any system as such. In short, what I understood is that :
+  1. Higher kp value results ina snappier response, which will lead to overshoots from the actual target. Once an overshoot has occured, the the system will never be stable as it will keep on oscillating about the target value.
+  2. The kd valu is good to dampen the oscillation and reduce the extent of overshooting. A substantially high kd value, however, will result in the response being overdamped and sluggish.
+  3. The ki value is used to give that final push to correct any offset errors. A higher ki will also result in more oscillations just like kp.
